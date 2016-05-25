@@ -8,7 +8,7 @@ Currently, it is not possible to require this library with composer.
 
 Just download/clone this repository and `require` the front PHP-file :
 
-```
+```php
 require_once(__DIR__ . '/php-console-log.php');
 ```
 
@@ -20,13 +20,13 @@ More detailed working examples can be found in the `./examples/` directory.
 
 Define a place where the library should output the console logs:
 
-```
+```php
 <?php execConsoleLogs(); ?>
 ```
 
 You can now use the `consoleLog()` function everywhere, as long as it is called before an `execConsoleLogs()` call.
 
-```
+```php
 <?php 
 
 $myArray = ['one','two','three'];
@@ -46,14 +46,14 @@ This tag contains the required JavaScript logic in order to output the requested
 
 By default, the library generates the following HTML markup:
 
-```
+```html
 <script type="text/javascript" data-php-console-log="true">
       [...]
 </script>
 ```
 You can remove or modify the `data-php-console-log` attribute by setting it as follows:
 
-```
+```php
 /*
  * Remove the attribute :
  */
@@ -75,6 +75,6 @@ $PHPConsoleLog->setAttribute('data-my-attribute', 'attribute-value');
 
 ## What now ?
 
-Well, I wrote this library in a hurry, so there's probably a lot to change/to add. Feel free to contribute or to request some changes.
+Well, I wrote this library in a hurry, so there's probably a lot to change/add. Feel free to contribute or to request some changes.
 
 Enjoy!

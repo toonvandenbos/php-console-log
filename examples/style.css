@@ -162,3 +162,8 @@ a{
       font-family: monospace;
       color: #544d4c;
 }
+
+.example__format strong{
+      font-weight: bold;
+      color: #373b4b;
+}

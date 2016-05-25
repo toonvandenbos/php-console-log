@@ -51,12 +51,12 @@ require_once(__DIR__ . '/../php-console-log.php');</pre>
                   <pre class="example__format">
 &lt;!-- [...] some templating code --&gt;
 
-&lt;?php execConsoleLogs(); ?&gt;
+&lt;?php <strong>execConsoleLogs();</strong> ?&gt;
 
 &lt;!-- [...] some other templating code --&gt;</pre>
             </div>
             <div class="example__text">
-                  <p>Good. Now we're all set and can start using the console.log() everywhere in the PHP, as long as it is <strong>executed before a <em>execConsoleLogs()</em></strong> call.</p>
+                  <p>Good. We're now all set. You can start using the consoleLog() everywhere, as long as it is <strong>called before an <em>execConsoleLogs()</em></strong> call.</p>
             </div>
             <div class="example__code">
                   <pre class="example__format">
@@ -64,7 +64,7 @@ require_once(__DIR__ . '/../php-console-log.php');</pre>
 
 function handleSomeVar( $data ){
       // ... do stuff.
-      consoleLog($data);
+      <strong>consoleLog($data);</strong>
       // ... do some other stuff
 }
 

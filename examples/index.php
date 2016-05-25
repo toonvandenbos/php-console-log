@@ -77,7 +77,15 @@ function handleSomeVar( $data ){
 
             <?php 
                   // Output a simple var in the browser's console :
-                  $myVar = '#1 - Hello! This is example n.1 - How are you? :)';
+                  consoleLog( '#1 - Hello! This is example n.1 - The following object once was a simple PHP\'s stdClass(), but consoleLog formatted it so javascript can display it.' );
+                  $myVar = new stdClass();
+                  $myVar->string = "hello";
+                  $myVar->boolean = true;
+                  $myVar->integer = 15;
+                  $myVar->float = 1.15;
+                  $myVar->array = ['one','two','three'];
+                  $myVar->object = new stdClass();
+                  $myVar->object->content = 'Is there anybody out there?';
                   consoleLog( $myVar );
             ?>
 
@@ -123,6 +131,7 @@ $PHPConsoleLog->setAttribute('data-my-attribute', 'attribute-value');</pre>
             <?php 
                   // Change the script tag attribute
                   $PHPConsoleLog->setAttribute('data-hello', 'Is there anybody?');
+                  consoleLog( '#2 - We\'ve just set the attribute of the HTML\'s <script> tag to data-hello="Is there anybody?".' );
             ?>
 
       </section>

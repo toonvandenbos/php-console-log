@@ -73,6 +73,14 @@ $PHPConsoleLog->setAttribute('data-my-attribute');
 $PHPConsoleLog->setAttribute('data-my-attribute', 'attribute-value');
 ```
 
+## Wordpress tip
+
+Do you want to use this library on a wordpress theme ? Just add the following line in your `functions.php` file and start `consoleLog()`ing right now !
+
+```php
+add_action( 'wp_footer', 'execConsoleLogs', 100 );
+```
+
 ## What now ?
 
 Well, I wrote this library in a hurry, so there's probably a lot to change/add. Feel free to contribute or to request some changes.

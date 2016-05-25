@@ -24,6 +24,16 @@ class Dump
             $this->container[] = $this->getLog($data, $parse);
       }
 
+      public function get()
+      {
+            return $this->container;
+      }
+
+      public function clear()
+      {
+            $this->container = [];
+      }
+
       public function display()
       {
             echo $this->getScript();
@@ -36,6 +46,7 @@ class Dump
                   $html .= $this->getConsoleLog($log);
             }
             $html .= $this->getClosingTag();
+            $this->clear();
             return $html;
       }
 

@@ -41,6 +41,7 @@ class Dump
 
       public function getScript()
       {
+            if(!count($this->container)) return null;
             $html = $this->getOpeningTag();
             foreach ($this->container as $log) {
                   $html .= $this->getConsoleLog($log);

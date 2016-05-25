@@ -71,6 +71,7 @@ function handleSomeVar( $data ){
 <em>// [...] some templating/PHP code</em></pre>
             </div>
             <div class="example__text">
+                  <p>You can use <strong>consoleLog()</strong> with any type of variable. If you want to output a PHP object, the library will show a JavaScript Object in the browser's console. A boolean will remain a boolean, an integer will remain an integer, a string remain a string, and so on.</p>
                   <p>Take a look at your console, you should see what this basic consoleLog outputed on this page!</p>
             </div>
 
@@ -79,7 +80,7 @@ function handleSomeVar( $data ){
                   $myVar = '#1 - Hello! This is example n.1 - How are you? :)';
                   consoleLog( $myVar );
             ?>
-            
+
       </section>
 
       <section class="example">

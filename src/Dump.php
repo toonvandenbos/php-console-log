@@ -19,9 +19,9 @@ class Dump
             }
       }
 
-      public function log($data, $parse = true)
+      public function log($data)
       {
-            $this->container[] = $this->getLog($data, $parse);
+            $this->container[] = $this->getLog($data);
       }
 
       public function get()
@@ -51,12 +51,12 @@ class Dump
             return $html;
       }
 
-      protected function getLog($data, $parse)
+      protected function getLog($data)
       {
             $o = new \stdClass();
             $o->type = $this->getValueType($data);
             $o->value = $data;
-            $o->hasParse = $parse ? true : false;
+            $o->hasParse = true;
             return $o;
       }
 
@@ -86,15 +86,9 @@ class Dump
       protected function getConsoleLog($log)
       {
             $s = 'console.log(';
-            $s .= $this->getStringLog($log);
+            $s .= $this->getParsedLog($log);
             $s .= ');';
             return $s;
-      }
-
-      protected function getStringLog($log)
-      {
-            if($log->hasParse) return $this->getParsedLog($log);
-            return $this->getPhpLog($log);
       }
 
       protected function getParsedLog($log)
@@ -120,11 +114,6 @@ class Dump
                         return $log->value;
                         break;
             }
-      }
-
-      protected function getPhpLog($log)
-      {
-            return $this->makeString('TODO: format PHP-style var_dump()\'s');
       }
 
       protected function makeDecode($s)

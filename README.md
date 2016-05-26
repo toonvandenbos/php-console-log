@@ -4,7 +4,13 @@ PHP console.log() allows you to dump PHP variables in the browser's console. It 
 
 ## Installation
 
-Currently, it is not possible to require this library with composer.
+### With Composer
+
+```shell
+composer require nyratas/php-console-log
+```
+
+### Manually
 
 Just download/clone this repository and `require` the autoload file:
 
@@ -12,15 +18,15 @@ Just download/clone this repository and `require` the autoload file:
 require_once(__DIR__ . '/PHPConsoleLog/__autoload.php');
 ```
 
+## Usage
+
+More detailed working examples can be found in the `./examples/` directory.
+
 Don't forget to `use` the library's facade:
 
 ```php
 use PHPConsoleLog\Service as Console;
 ```
-
-## Usage
-
-More detailed working examples can be found in the `./examples/` directory.
 
 ### Basic PHP console.log()
 

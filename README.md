@@ -6,10 +6,16 @@ PHP console.log() allows you to dump PHP variables in the browser's console. It 
 
 Currently, it is not possible to require this library with composer.
 
-Just download/clone this repository and `require` the front PHP-file :
+Just download/clone this repository and `require` the autoload file:
 
 ```php
-require_once(__DIR__ . '/php-console-log.php');
+require_once(__DIR__ . '/PHPConsoleLog/__autoload.php');
+```
+
+Don't forget to `use` the library's facade:
+
+```php
+use PHPConsoleLog\Service as Console;
 ```
 
 ## Usage
@@ -21,36 +27,33 @@ More detailed working examples can be found in the `./examples/` directory.
 Define a place where the library should output the console logs:
 
 ```php
-<?php execConsoleLogs(); ?>
+Console::exec();
 ```
 
-You can now use the `consoleLog()` function everywhere, as long as it is called before an `execConsoleLogs()` call.
+You can now use the `Console::log()` method everywhere, as long as it is called before a `Console::exec()` call.
 
 ```php
-<?php 
-
 $myArray = ['one','two','three'];
 
-consoleLog($myArray);
-
-?>
+Console::log($myArray);
 ```
 
-You can use `consoleLog()` with any type of variable. If you want to output an PHP array or object, the library will show a JavaScript Array or Object in the browser's console. A boolean will remain a boolean, an integer will remain an integer, a string remain a string, and so on.
+You can use `Console::log()` with any type of variable. If you want to output an PHP array or object, the library will show a JavaScript Array or Object in the browser's console. A boolean will remain a boolean, an integer will remain an integer, a string remain a string, and so on.
 
 ### Edit the `<script>` tag
 
-All this library does is generating a `<script>` where you asked it (using `the execConsoleLogs()` function).
+All this library does is generating a `<script>`-tag at the location of the `Console::exec()` call.
 
-This tag contains the required JavaScript logic in order to output the requested data in the browser's console. There is not much you could do on the generated JavaScript code, but you can add an attribute on the `<script>` tag.
+This tag contains the required JavaScript logic in order to output the requested data in the browser's console. There is not much you can do on the generated JavaScript code, but you could want to add an attribute on the `<script>` tag.
 
-By default, the library generates the following HTML markup:
+The library generates the following default HTML markup:
 
 ```html
 <script type="text/javascript" data-php-console-log="true">
       [...]
 </script>
 ```
+
 You can remove or modify the `data-php-console-log` attribute by setting it as follows:
 
 ```php
@@ -58,9 +61,9 @@ You can remove or modify the `data-php-console-log` attribute by setting it as f
  * Remove the attribute :
  */
 
-$PHPConsoleLog->setAttribute();
+Console::setAttribute();
       // or
-$PHPConsoleLog->setAttribute(false);
+Console::setAttribute(false);
 
 
 /*
@@ -68,17 +71,17 @@ $PHPConsoleLog->setAttribute(false);
  */
 
       // simple attribute
-$PHPConsoleLog->setAttribute('data-my-attribute');
+Console::setAttribute('data-my-attribute');
       // attribute with value
-$PHPConsoleLog->setAttribute('data-my-attribute', 'attribute-value');
+Console::setAttribute('data-my-attribute','attribute-value');
 ```
 
 ## Wordpress tip
 
-Do you want to use this library on a wordpress theme ? Just add the following line in your `functions.php` file and start `consoleLog()`ing right now !
+Do you want to use this library on a wordpress theme ? Just add the following line in your `functions.php` file and start `Console::log()`-ing right now !
 
 ```php
-add_action( 'wp_footer', 'execConsoleLogs', 100 );
+add_action( 'wp_footer', function(){ Console::exec(); }, 100 );
 ```
 
 ## What now ?

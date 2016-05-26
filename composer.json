@@ -1,0 +1,27 @@
+{
+      "name": "nyratas/php-console-log",
+      "type": "library",
+      "description": "Displays var_dump()s in the browser's JavaScript console.",
+      "keywords": ["PHP", "debug", "console", "error", "log", "var_dump", "console.log", "logging", "javascript"],
+      "homepage": "https://github.com/Nyratas/php-console-log",
+      "license": "MIT",
+      "authors": [
+            {
+                  "name": "Toon Van den Bos",
+                  "email": "toon@whitecube.be",
+                  "homepage": "https://be.linkedin.com/in/toon-van-den-bos-40461264",
+                  "role": "Developer"
+            }
+      ],
+      "support": {
+            "issues": "https://github.com/Nyratas/php-console-log/issues"
+      },
+      "require": {
+            "php": ">=5.3.0"
+      },
+      "autoload": {
+            "psr-0": {
+                  "PHPConsoleLog": "src"
+            }
+      }
+}

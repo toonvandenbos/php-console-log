@@ -11,7 +11,7 @@
  * execute the wanted console.log().
  *
  * @see https://github.com/nyratas/php-console-log
- * @version 1.0
+ * @version 1.1
  * @author Toon Van den Bos https://be.linkedin.com/in/toon-van-den-bos-40461264
  */
 

@@ -4,7 +4,7 @@
  * PHP Console loging examples
  * 
  * If you're looking for source code, please take a look at
- * ../php-console-log.php and ../src/
+ * ../src/ directory
  *
  * No specific extensions or browsers are required, since
  * this library only generates javascript code that will
@@ -15,8 +15,9 @@
  * @author Toon Van den Bos https://be.linkedin.com/in/toon-van-den-bos-40461264
  */
 
+require_once(__DIR__ . '/../src/PHPConsoleLog/__autoload.php');
 
-require_once(__DIR__ . '/../php-console-log.php');
+use PHPConsoleLog\Service as Console;
 
 ?>
 <!DOCTYPE html>
@@ -77,7 +78,7 @@ function handleSomeVar( $data ){
 
             <?php 
                   // Output a simple var in the browser's console :
-                  consoleLog( '#1 - Hello! This is example n.1 - The following object once was a simple PHP\'s stdClass(), but consoleLog formatted it so javascript can display it.' );
+                  Console::log( '#1 - Hello! This is example n.1 - The following object once was a simple PHP\'s stdClass(), but consoleLog formatted it so javascript can display it.' );
                   $myVar = new stdClass();
                   $myVar->string = "hello";
                   $myVar->boolean = true;
@@ -86,7 +87,7 @@ function handleSomeVar( $data ){
                   $myVar->array = ['one','two','three'];
                   $myVar->object = new stdClass();
                   $myVar->object->content = 'Is there anybody out there?';
-                  consoleLog( $myVar );
+                  Console::log( $myVar );
             ?>
 
       </section>
@@ -130,8 +131,8 @@ $PHPConsoleLog->setAttribute('data-my-attribute', 'attribute-value');</pre>
 
             <?php 
                   // Change the script tag attribute
-                  $PHPConsoleLog->setAttribute('data-hello', 'Is there anybody?');
-                  consoleLog( '#2 - We\'ve just set the attribute of the HTML\'s <script> tag to data-hello="Is there anybody?".' );
+                  Console::setAttribute('data-hello', 'Is there anybody?');
+                  Console::log( '#2 - We\'ve just set the attribute of the HTML\'s <script> tag to data-hello="Is there anybody?".' );
             ?>
 
       </section>
@@ -140,6 +141,6 @@ $PHPConsoleLog->setAttribute('data-my-attribute', 'attribute-value');</pre>
             <p class="main-footer__author">By <a href="https://be.linkedin.com/in/toon-van-den-bos-40461264" target="_blank">Toon Van den Bos</a></p>
             <p class="main-footer__created">Project started: may 2016</p>
       </footer>
-      <?php execConsoleLogs(); ?>
+      <?php Console::exec(); ?>
 </body>
 </html>
